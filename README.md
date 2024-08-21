@@ -9,7 +9,7 @@ This web application helps users manage and track their daily habits. Users can 
 + CRUD of practice 
 
 ## Entity - Relation Diagram (ERD) ##
-![ER Diagram](blob/main/Habit%20tracker%20ER.drawio.png)
+![ER Diagram](https://github.com/damira91/Otus-javapro-habit-tracker-project/blob/main/Habit%20tracker%20ER.drawio.png)
 + **User:** manages user's credentials
 + **Profile:** manages user information
 + **Habit:** shows individual habits that user want to track
