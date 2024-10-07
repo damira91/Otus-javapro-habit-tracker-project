@@ -4,10 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class UserLoginRequestDto {
-    private String email;
-    private String password;
+public class CreateHabitDto {
+    private String name;
+    private String goal;
+    private String categoryName;
 }

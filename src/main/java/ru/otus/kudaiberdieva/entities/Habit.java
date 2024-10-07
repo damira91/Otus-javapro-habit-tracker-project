@@ -1,32 +1,27 @@
 package ru.otus.kudaiberdieva.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "habits")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@Table(name = "habits")
 public class Habit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String outcome;
-    private Integer progress;
+    private String goal;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name="user_id")
     private User user;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id",  nullable = false)
     private Category category;
-
     @OneToMany(mappedBy = "habit", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Practice> practices;
 }

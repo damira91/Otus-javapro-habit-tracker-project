@@ -9,21 +9,17 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "habit_tracks")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Table(name = "practices")
 public class Practice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private boolean done;
     private LocalDate date;
-    @ManyToOne
-    @JoinColumn(name = "habit_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "habit_id", nullable = false)
     private Habit habit;
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 }
